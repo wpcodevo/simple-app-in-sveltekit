@@ -29,7 +29,7 @@
 	$: pageLoading = $feedbackStore.page_loading;
 </script>
 
-<main class="md:container mt-24 px-5">
+<main class="md:container mt-10 sm:mt-24 px-5">
 	<FeedbackForm />
 	<FeedbackStats {feedbacks} />
 

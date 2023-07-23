@@ -3,7 +3,6 @@ import type { Feedback } from '@prisma/client';
 import { toast } from '@zerodevx/svelte-toast';
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-import { PUBLIC_VERCEL_URL } from '$env/static/public';
 
 type FeedbackStore = {
 	page_loading: boolean;
@@ -13,9 +12,6 @@ type FeedbackStore = {
 	editFeedback: (id: string, data: string) => void;
 	deleteFeedback: (id: string) => void;
 };
-
-const ORIGIN_URL =
-	process.env.NODE_ENV === 'production' ? `https://${PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
 
 async function handleResponse<T>(response: Response): Promise<T> {
 	const contentType = response.headers.get('Content-Type') || '';
@@ -42,7 +38,7 @@ export const useFeedbackStore = (): Writable<FeedbackStore> => {
 				page_loading: true
 			}));
 			try {
-				const response = await fetch(`${ORIGIN_URL}/api/feedbacks/`, {
+				const response = await fetch('/api/feedbacks/', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
@@ -76,7 +72,7 @@ export const useFeedbackStore = (): Writable<FeedbackStore> => {
 				page_loading: true
 			}));
 			try {
-				const response = await fetch(`${ORIGIN_URL}/api/feedbacks/${id}`, {
+				const response = await fetch(`/api/feedbacks/${id}`, {
 					method: 'PATCH',
 					headers: {
 						'Content-Type': 'application/json'
@@ -110,7 +106,7 @@ export const useFeedbackStore = (): Writable<FeedbackStore> => {
 				page_loading: true
 			}));
 			try {
-				const response = await fetch(`${ORIGIN_URL}/api/feedbacks/${id}`, {
+				const response = await fetch(`/api/feedbacks/${id}`, {
 					method: 'DELETE'
 				});
 

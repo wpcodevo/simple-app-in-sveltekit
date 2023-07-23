@@ -1,6 +1,6 @@
 <script lang="ts">
 	import feedbackStore from '$lib/store';
-	import {fade} from 'svelte/transition'
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import FeedbackForm from '../components/feedback-form.svelte';
 	import FeedbackStats from '../components/feedback-stats.svelte';
@@ -26,7 +26,7 @@
 		};
 	});
 
-	$: pageLoading = $feedbackStore.page_loading
+	$: pageLoading = $feedbackStore.page_loading;
 </script>
 
 <main class="md:container mt-24 px-5">
@@ -38,7 +38,10 @@
 	{/each}
 
 	{#if feedbacks.length === 0}
-		<p in:fade={{delay: 700, duration: 300}} class="max-w-md mx-auto py-6 text-center text-lg rounded-md bg-white">
+		<p
+			in:fade={{ delay: 700, duration: 300 }}
+			class="max-w-md mx-auto py-6 text-center text-lg rounded-md bg-white"
+		>
 			No Feedbacks Found
 		</p>
 	{/if}
@@ -47,5 +50,5 @@
 	<div
 		class="fixed top-5 left-5 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-yellow-400 border-r-transparent align-[-0.125em] text-warning motion-reduce:animate-[spin_1.5s_linear_infinite]"
 		role="status"
-	></div>
+	/>
 {/if}

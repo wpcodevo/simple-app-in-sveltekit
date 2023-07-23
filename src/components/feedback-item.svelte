@@ -52,7 +52,11 @@
 	}
 </script>
 
-<div in:fade={{delay: 300, duration: 300}} out:fade={{delay: 300, duration: 300}} class="bg-white text-gray-700 rounded-lg p-8 my-5 relative">
+<div
+	in:fade={{ delay: 300, duration: 300 }}
+	out:fade={{ delay: 300, duration: 300 }}
+	class="bg-white text-gray-700 rounded-lg p-8 my-5 relative"
+>
 	<div
 		class="bg-pink-500 text-white rounded-full border-2 border-gray-200 w-12 h-12 flex items-center justify-center text-2xl font-bold absolute top-0 left-0 -mt-4 -ml-4"
 	>
@@ -71,7 +75,7 @@
 		on:click={toggleEdit}>Edit</button
 	>
 	{#if editing}
-		<div class="flex justify-between gap-4">
+		<div class="flex flex-col items-center sm:flex-row justify-between sm:gap-4 gap-y-2">
 			<input
 				type="text"
 				class="border rounded-lg p-2 w-full focus:outline-none"

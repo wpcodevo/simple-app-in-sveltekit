@@ -33,7 +33,7 @@
 	}
 </script>
 
-<div class="bg-white text-gray-700 rounded-lg p-8 my-5 relative">
+<div class="bg-white text-gray-700 rounded-lg p-2 my-2 sm:p-8 sm:my-5 relative">
 	<form on:submit={onSubmit}>
 		<div class="max-w-md mx-auto">
 			<label for="feedback-input" class="inline-block text-center text-2xl font-bold"
@@ -41,12 +41,14 @@
 			>
 		</div>
 		<Rating selected={rating} onchange={(val) => (rating = val)} />
-		<div class="flex border rounded-lg my-4 px-2 py-3">
+		<div
+			class="flex flex-col items-center gap-y-4 sm:gap-y-0 sm:flex-row sm:border rounded-lg sm:my-4 px-2 py-3"
+		>
 			<input
 				type="text"
 				id="feedback-input"
 				bind:value={feedbackText}
-				class="flex-grow border-none text-lg focus:outline-none"
+				class="sm:flex-grow border w-full rounded sm:rounded-none px-2 py-3 sm:border-none text-base sm:text-lg focus:outline-none"
 				placeholder="Tell us something that keeps you coming back"
 			/>
 			<button
@@ -58,7 +60,7 @@
 			</button>
 		</div>
 		{#if message}
-			<div class="pt-3 text-center text-purple-600">{message}</div>
+			<div class="sm:pt-3 text-center text-purple-600">{message}</div>
 		{/if}
 	</form>
 </div>

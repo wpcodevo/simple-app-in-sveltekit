@@ -6,7 +6,6 @@ export async function GET({ url }) {
 		const pageQueryParam = url.searchParams.get('page');
 		const limitQueryParam = url.searchParams.get('limit');
 		const orderBy = url.searchParams.get('orderBy') === 'asc' ? 'asc' : 'desc';
-		console.log('Hello');
 
 		const page = pageQueryParam ? parseInt(pageQueryParam, 10) : 1;
 		const limit = limitQueryParam ? parseInt(limitQueryParam, 10) : 10;
@@ -73,7 +72,7 @@ export async function POST({ request }) {
 		if (error.code === 'P2002') {
 			const error_response = {
 				status: 'fail',
-				message: 'Feedback with title already exists'
+				message: 'Feedback with that title already exists'
 			};
 			return json(error_response, {
 				status: 409,

@@ -17,8 +17,6 @@ type FeedbackStore = {
 const ORIGIN_URL =
 	process.env.NODE_ENV === 'production' ? `https://${PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
 
-console.log(import.meta.env.VERCEL_URL);
-
 async function handleResponse<T>(response: Response): Promise<T> {
 	const contentType = response.headers.get('Content-Type') || '';
 	const isJson = contentType.includes('application/json');

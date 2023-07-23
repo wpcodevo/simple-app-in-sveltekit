@@ -3,7 +3,6 @@ import type { Feedback } from '@prisma/client';
 import { toast } from '@zerodevx/svelte-toast';
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-import { VERCEL_URL } from '$env/static/private';
 
 type FeedbackStore = {
 	page_loading: boolean;
@@ -14,7 +13,9 @@ type FeedbackStore = {
 	deleteFeedback: (id: string) => void;
 };
 
-const ORIGIN_URL = VERCEL_URL ? `https://${VERCEL_URL}` : 'http://localhost:3000';
+const ORIGIN_URL = import.meta.env.VERCEL_URL
+	? `https://${import.meta.env.VERCEL_URL}`
+	: 'http://localhost:3000';
 
 console.log(import.meta.env.VERCEL_URL);
 

@@ -1,17 +1,16 @@
 <script lang="ts">
 	import feedbackStore from '$lib/store';
+	import {fade} from 'svelte/transition'
 	import { onMount } from 'svelte';
 	import FeedbackForm from '../components/feedback-form.svelte';
 	import FeedbackStats from '../components/feedback-stats.svelte';
 	import FeedbackItem from '../components/feedback-item.svelte';
-	import LoadingSkeleton from '../components/loading-skeleton.svelte';
 	import type { PageData } from './$types';
 	import { invalidate } from '$app/navigation';
 
 	export let data: PageData;
 	$: ({ feedbacks } = data);
 	let pageLoading = false;
-	let isFirstLoad = true;
 
 	async function onFocus() {
 		$feedbackStore.setPageLoading(true);
@@ -20,10 +19,6 @@
 	}
 
 	onMount(() => {
-		if (isFirstLoad) {
-			isFirstLoad = false;
-		}
-
 		window.addEventListener('focus', onFocus);
 
 		return () => {
@@ -31,27 +26,21 @@
 		};
 	});
 
-	$: pageLoading = $feedbackStore.page_loading || isFirstLoad;
+	$: pageLoading = $feedbackStore.page_loading
 </script>
 
 <main class="md:container mt-24 px-5">
 	<FeedbackForm />
 	<FeedbackStats {feedbacks} />
 
-	{#if isFirstLoad}
-		{#each Array.from({ length: 4 }, (_, i) => i + 1) as i}
-			<LoadingSkeleton />
-		{/each}
-	{:else}
-		{#each feedbacks as feedback}
-			<FeedbackItem {feedback} />
-		{/each}
+	{#each feedbacks as feedback}
+		<FeedbackItem {feedback} />
+	{/each}
 
-		<!-- {#if feedbacks.length === 0 && !isFirstLoad}
-			<p class="max-w-md mx-auto py-6 text-center text-lg rounded-md bg-white">
-				No Feedbacks Found
-			</p>
-		{/if} -->
+	{#if feedbacks.length === 0}
+		<p in:fade={{delay: 700, duration: 300}} class="max-w-md mx-auto py-6 text-center text-lg rounded-md bg-white">
+			No Feedbacks Found
+		</p>
 	{/if}
 </main>
 {#if pageLoading}

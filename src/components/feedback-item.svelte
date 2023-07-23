@@ -52,7 +52,7 @@
 	}
 </script>
 
-<div transition:fade class="bg-white text-gray-700 rounded-lg p-8 my-5 relative">
+<div in:fade={{delay: 300, duration: 300}} out:fade={{delay: 300, duration: 300}} class="bg-white text-gray-700 rounded-lg p-8 my-5 relative">
 	<div
 		class="bg-pink-500 text-white rounded-full border-2 border-gray-200 w-12 h-12 flex items-center justify-center text-2xl font-bold absolute top-0 left-0 -mt-4 -ml-4"
 	>

@@ -1,0 +1,13 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": false,
+      "simple-app-in-sveltekit-api": false
+    }
+  },
+  "alias": {
+    "branches": [
+      { "src": "simple-app-in-sveltekit-supabase-deploy", "dest": "production" }
+    ]
+  }
+}

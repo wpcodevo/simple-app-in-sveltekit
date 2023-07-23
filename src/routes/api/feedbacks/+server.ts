@@ -6,7 +6,6 @@ export async function GET({ url }) {
 		const pageQueryParam = url.searchParams.get('page');
 		const limitQueryParam = url.searchParams.get('limit');
 		const orderBy = url.searchParams.get('orderBy') === 'asc' ? 'asc' : 'desc';
-		console.log('Hello');
 
 		const page = pageQueryParam ? parseInt(pageQueryParam, 10) : 1;
 		const limit = limitQueryParam ? parseInt(limitQueryParam, 10) : 10;

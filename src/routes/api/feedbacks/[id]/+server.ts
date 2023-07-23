@@ -63,7 +63,7 @@ export async function DELETE({ params }) {
 			where: { id: feedbackId }
 		});
 
-		return json(null, { status: 204 });
+		return new Response(null, { status: 204 });
 	} catch (error: any) {
 		if (error.code === 'P2025') {
 			const message = 'No Feedback with the Provided ID Found';

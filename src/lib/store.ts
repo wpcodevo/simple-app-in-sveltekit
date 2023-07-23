@@ -13,7 +13,9 @@ type FeedbackStore = {
 	deleteFeedback: (id: string) => void;
 };
 
-const SERVER_ENDPOINT = 'http://localhost:3000';
+const ORIGIN_URL = import.meta.env.NEXT_PUBLIC_VERCEL_URL
+	? `https://${import.meta.env.NEXT_PUBLIC_VERCEL_URL}`
+	: 'http://localhost:3000';
 
 async function handleResponse<T>(response: Response): Promise<T> {
 	const contentType = response.headers.get('Content-Type') || '';
@@ -40,7 +42,7 @@ export const useFeedbackStore = (): Writable<FeedbackStore> => {
 				page_loading: true
 			}));
 			try {
-				const response = await fetch(`${SERVER_ENDPOINT}/api/feedbacks/`, {
+				const response = await fetch(`${ORIGIN_URL}/api/feedbacks/`, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
@@ -74,7 +76,7 @@ export const useFeedbackStore = (): Writable<FeedbackStore> => {
 				page_loading: true
 			}));
 			try {
-				const response = await fetch(`${SERVER_ENDPOINT}/api/feedbacks/${id}`, {
+				const response = await fetch(`${ORIGIN_URL}/api/feedbacks/${id}`, {
 					method: 'PATCH',
 					headers: {
 						'Content-Type': 'application/json'
@@ -108,7 +110,7 @@ export const useFeedbackStore = (): Writable<FeedbackStore> => {
 				page_loading: true
 			}));
 			try {
-				const response = await fetch(`${SERVER_ENDPOINT}/api/feedbacks/${id}`, {
+				const response = await fetch(`${ORIGIN_URL}/api/feedbacks/${id}`, {
 					method: 'DELETE'
 				});
 

@@ -13,7 +13,7 @@ export async function GET({ params }) {
 
 		if (!feedback) {
 			const message = 'No Feedback with the Provided ID Found';
-			return generateErrorResponse({ message, status: 404 });
+			return json({ message},{ status: 404 });
 		}
 
 		const json_response = {
@@ -24,7 +24,7 @@ export async function GET({ params }) {
 		};
 		return json(json_response);
 	} catch (error: any) {
-		return generateErrorResponse({ message: error.message, status: 500 });
+		return json({ message: error.message},{ status: 500 });
 	}
 }
 
@@ -48,10 +48,10 @@ export async function PATCH({ request, params }) {
 	} catch (error: any) {
 		if (error.code === 'P2025') {
 			const message = 'No Feedback with the Provided ID Found';
-			return generateErrorResponse({ message, status: 404 });
+			return json({ message},{ status: 404 });
 		}
 
-		return generateErrorResponse({ message: error.message, status: 500 });
+		return json({ message: error.message},{ status: 500 });
 	}
 }
 
@@ -67,19 +67,10 @@ export async function DELETE({ params }) {
 	} catch (error: any) {
 		if (error.code === 'P2025') {
 			const message = 'No Feedback with the Provided ID Found';
-			return generateErrorResponse({ message, status: 404 });
+			return json({ message}, {status: 404 });
 		}
 
-		return generateErrorResponse({ message: error.message, status: 500 });
+		return json({ message: error.message},{ status: 500 });
 	}
 }
 
-const generateErrorResponse = ({ message, status }: { message: string; status: number }) => {
-	return json(
-		{ status: status >= 500 ? 'error' : 'fail', message },
-		{
-			status,
-			headers: { 'Content-Type': 'application/json' }
-		}
-	);
-};

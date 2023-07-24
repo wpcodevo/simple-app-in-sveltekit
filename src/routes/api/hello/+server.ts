@@ -1,3 +1,5 @@
+import { json } from "@sveltejs/kit";
+
 export async function GET() {
 	const responseBody = {
 		status: 'success',
@@ -7,4 +9,6 @@ export async function GET() {
 		status: 200,
 		headers: { 'Content-Type': 'application/json' }
 	});
+
+	// return json(responseBody)
 }

@@ -1,0 +1,19 @@
+- Intro
+- More practice:
+- Image
+- TOC
+- Running the SvelteKit API on Your Machine
+- Setting up the SvelteKit Application
+- Setting up a PostgreSQL Database
+    - Using Docker
+    - Using a Cloud Platform
+- Setting up Prisma ORM for Database Access
+- Creating a Prisma Client singleton
+- Creating the SvelteKit API Endpoints
+    - GET `/hello`: Returns a Simple Message in JSON
+    - GET `/feedbacks`: Fetch Paginated List of Feedbacks
+    - POST `/feedbacks`: Add New Feedback in the Database
+    - GET `/feedbacks/[id]`: Retrieve a Single Feedback by ID
+    - PATCH `/feedbacks/[id]`: Edit a Feedback by ID
+    - DELETE `/feedbacks/[id]`: DELETE a Feedback by ID
+- Conclusion

@@ -43,10 +43,7 @@ export async function GET({ url }) {
 			status: 'error',
 			message: error.message
 		};
-		return json(error_response, {
-			status: 500,
-			headers: { 'Content-Type': 'application/json' }
-		});
+		return json(error_response, { status: 500 });
 	}
 }
 
@@ -64,29 +61,20 @@ export async function POST({ request }) {
 				feedback
 			}
 		};
-		return json(json_response, {
-			status: 201,
-			headers: { 'Content-Type': 'application/json' }
-		});
+		return json(json_response, { status: 201 });
 	} catch (error: any) {
 		if (error.code === 'P2002') {
 			const error_response = {
 				status: 'fail',
-				message: 'Feedback with that title already exists'
+				message: 'Feedback with title already exists'
 			};
-			return json(error_response, {
-				status: 409,
-				headers: { 'Content-Type': 'application/json' }
-			});
+			return json(error_response, { status: 409 });
 		}
 
 		const error_response = {
 			status: 'error',
 			message: error.message
 		};
-		return json(error_response, {
-			status: 500,
-			headers: { 'Content-Type': 'application/json' }
-		});
+		return json(error_response, { status: 500 });
 	}
 }

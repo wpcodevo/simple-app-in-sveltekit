@@ -1,38 +1,26 @@
-# create-svelte
+## 1. How to Build a Simple API in SvelteKit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+In this article, you will learn how to build a REST API with CRUD functionalities in TypeScript using the SvelteKit framework. This marks the first part of a two-part series where we'll create a full-stack feedback application. In this installment, our focus will be on creating the API aspect of the feedback application. In the subsequent tutorial, we'll tackle the frontend part, enabling it to interact seamlessly with the API.
 
-## Creating a project
+![How to Build a Simple API in SvelteKit](https://codevoweb.com/wp-content/uploads/2023/07/How-to-Build-a-Simple-API-in-SvelteKit.webp)
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Topics Covered
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Running the SvelteKit App on Your Machine
+- Setting up the SvelteKit Application
+- Setting up a PostgreSQL Database
+    - Using a Cloud Platform
+    - Optional: Using Docker
+- Setting up Prisma ORM for Database Access
+- Creating a Singleton Prisma Client
+- Creating the SvelteKit API Endpoints
+    - GET /hello: Returns a Simple Message in JSON
+    - GET /feedbacks: Fetches a Paginated List of Feedback
+    - POST /feedbacks: Adds a New Feedback
+    - GET /feedbacks/[id]: Retrieves a Single Feedback by ID
+    - PATCH /feedbacks/[id]: Edits a Feedback by ID
+    - DELETE /feedbacks/[id]: Deletes a Feedback by ID
+- Conclusion
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Read the entire article here: [https://codevoweb.com/how-to-build-a-simple-api-in-sveltekit/](https://codevoweb.com/how-to-build-a-simple-api-in-sveltekit/)
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

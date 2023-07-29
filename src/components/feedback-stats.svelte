@@ -3,7 +3,7 @@
 
 	export let feedbacks: Feedback[];
 
-	$: count = feedbacks.length;
+	$: count = feedbacks?.length;
 	$: sum = feedbacks.reduce((acc, feedback) => acc + feedback.rating, 0);
 	$: average = count > 0 ? (sum / count).toFixed(2) : '0.00';
 </script>

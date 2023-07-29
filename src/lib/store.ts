@@ -148,11 +148,6 @@ export type ErrorResponse = {
 	status: string;
 	message: string;
 };
-export type FeedbackListResponse = {
-	status: string;
-	results: number;
-	feedbacks: Feedback[];
-};
 
 export type FeedbackResponse = {
 	status: string;

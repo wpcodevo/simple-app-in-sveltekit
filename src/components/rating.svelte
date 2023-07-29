@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let selected: number = 0;
+	export let selected: number = 10;
 	export let onchange: (selected: number) => void = () => {};
 
 	const handleChange = (value: number) => {

@@ -24,3 +24,28 @@ In this article, you will learn how to build a REST API with CRUD functionalitie
 
 Read the entire article here: [https://codevoweb.com/how-to-build-a-simple-api-in-sveltekit/](https://codevoweb.com/how-to-build-a-simple-api-in-sveltekit/)
 
+
+## 2. Build a Frontend App in SvelteKit using a RESTful API
+
+In this article, you will learn how to build a feedback application in SvelteKit using a REST API. Specifically, we will be creating the UI that interacts with the REST API we built for the feedback application in the previous tutorial.
+
+![Build a Frontend App in SvelteKit using a RESTful API](https://codevoweb.com/wp-content/uploads/2023/07/Building-an-Application-in-SvelteKit-using-a-RESTful-API.webp)
+
+### Topics Covered
+
+- Running the Full-Stack SvelteKit App on Your Machine
+- Setting Up the SvelteKit Project
+- Setting Up Tailwind CSS
+- Adding Toast Notification
+- Creating the Application Store
+- Creating the Feedback Rating Component
+- Creating the Feedback Form Component
+- Creating the Feedback Statistics Component
+- Creating the Feedback Item Component
+- Loading the Feedback Data
+- Rendering the Svelte Components in a Page File
+- Conclusion
+
+Read the entire article here: [https://codevoweb.com/build-a-frontend-app-in-sveltekit-using-a-restful-api/](https://codevoweb.com/build-a-frontend-app-in-sveltekit-using-a-restful-api/)
+
+
